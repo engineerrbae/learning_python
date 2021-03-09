@@ -239,3 +239,77 @@ else:
 #     print("Not leap year.")
 # else:
 #   print("Not leap year.")
+
+
+------------------------------------------------------
+
+New Challenge: Day3-5
+
+You are going to write a program that tests the compatibility between two people. We're going to use the super scientific method recommended by BuzzFeed.
+
+To work out the love score between two people:
+
+Take both people's names and check for the number of times the letters in the word TRUE occurs. Then check for the number of times the letters in the word LOVE occurs. Then combine these numbers to make a 2 digit number.
+
+This BuzzFeed article gives more details on this:
+
+https://www.buzzfeed.com/ariannarebolini/what-are-the-chances-your-crush-is-actually-your-true-love
+
+For Love Scores less than 10 or greater than 90, the message should be:
+
+"Your score is **x**, you go together like coke and mentos."
+
+For Love Scores between 40 and 50, the message should be:
+
+"Your score is **y**, you are alright together."
+
+Otherwise, the message will just be their score. 
+
+Solution: 
+
+# 🚨 Don't change the code below 👇
+print("Welcome to the Love Calculator!")
+name1 = input("What is your name? \n")
+name2 = input("What is their name? \n")
+# 🚨 Don't change the code above 👆
+
+#First *fork* your copy. Then copy-paste your code below this line 👇
+#Finally click "Run" to execute the tests
+
+#converting both the names to lowercase
+#helpful in counting truelove easily
+name1lower=name1.lower()
+name2lower=name2.lower()
+
+#counting for her name
+T=name1lower.count('t')
+R=name1lower.count('r')
+U=name1lower.count('u')
+E=name1lower.count('e')
+L=name1lower.count('l')
+O=name1lower.count('o')
+V=name1lower.count('v')
+E=name1lower.count('e')
+
+#counting for his name
+T1=name2lower.count('t')
+R1=name2lower.count('r')
+U1=name2lower.count('u')
+E1=name2lower.count('e')
+L1=name2lower.count('l')
+O1=name2lower.count('o')
+V1=name2lower.count('v')
+E1=name2lower.count('e')
+
+sum1=T+R+U+E+T1+R1+U1+E1
+sum=L+O+V+E+L1+O1+V1+E1
+
+score= str(sum1)+str(sum) #type conversion to string to concatenate 2 numbers
+score=int(score) #conversion to int for conditions in if statements
+
+if(score<10 or score>90):
+  print(f"Your score is {score}, you go together like coke and mentos.")
+elif(score>=40 and score<=50):
+  print(f"Your score is {score}, you are alright together.")
+else:
+  print(f"Your score is {score}.")
