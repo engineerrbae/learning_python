@@ -1,0 +1,6 @@
+ #Randomisation & Python Lists
+ 
+ Randomness & quirky is useful when comes to gaming enviornment. It makes the games interesting.
+ 
+ There's a whole bunch of maths that can be applied to create what are called a pseudo-random number generators.
+ And the one that Python uses is something called the Mersenne Twister.
