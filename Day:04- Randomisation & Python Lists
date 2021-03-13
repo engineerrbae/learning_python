@@ -4,3 +4,40 @@
  
  There's a whole bunch of maths that can be applied to create what are called a pseudo-random number generators.
  And the one that Python uses is something called the Mersenne Twister.
+ 
+ #int random no.
+ 
+ import random # this library stores the module random logic
+ 
+ r=random.randint(0,1) #It will show random no. in between 0 & 1
+ print(r)
+ 
+ #floating point random number
+ 
+ import random
+ 
+r= random.random() #It will show random no. in between 0 & 1 but not including 1
+ print(r)
+ 
+ #show the random no. in between 0 to 5
+ 
+ r=random.random() #It will show random no. in between 0 & 1 but not including 1
+ r=r*5
+ print(r)
+ 
+ 2. LISTS: Collection of data within square brackets which has a certain relationship with each other. Just like states in India comes under state relation. 
+ list is what you would call a data structure.
+ 
+It's just a set of square brackets with many items stored inside.And those items can be any data type. They can even have mixed data types like
+you could store strings together with numbers or a set of booleans.It doesn't really matter.But what does matter is the syntax. 
+
+In Python lists always start with a open square bracket and a closing square bracket.And then in between you have your items separated by a comma.
+So pretty simple. In order to store it inside the variable,then its the same way as we've done before.
+
+The only difference is the right hand side of the equal sign.This is the list data structure.
+
+If we stored a bunch of fruits, for example,than it might look something like this: Cherry, Apple, Pear, separated by a comma inside a set of square brackets.
+
+fruits = [Cherry,Apple,Pear]
+
+
