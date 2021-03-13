@@ -40,4 +40,115 @@ If we stored a bunch of fruits, for example,than it might look something like th
 
 fruits = [Cherry,Apple,Pear]
 
+---> Who's Paying: Exercise: Day-4-2
 
+Instructions:
+You are going to write a program which will select a random name from a list of names. The person selected will have to pay for everybody's food bill.
+
+Important: You are not allowed to use the choice() function.
+
+Line 8 splits the string names_string into individual names and puts them inside a List called names. For this to work, you must enter all the names as name followed by comma then space. e.g. name, name, name
+
+Example Input
+Angela, Ben, Jenny, Michael, Chloe
+Angela, Ben, Jenny, Michael, Chloe
+Note: notice that there is a space between the comma and the next name.
+
+Example Output
+Michael is going to buy the meal today!
+
+
+Solutions:
+
+solution 1:
+
+import random
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+
+b = random.sample(names, 1)
+print(*b,"is going to buy the meal today!")
+
+Additional Notes:
+
+#The work of random.sample(population,k) is it selects the random item from the list 'names' & output the 1 item. K, can be of any length but equal to
+#the length of the existing list(here as equal to the size of names list).
+ #The work of star(*) is to unpack the list and return every element present in the list.
+
+solution 2:
+
+# Split string method
+import random
+names_string = input("Give me everybody's names, separated by a comma. ")
+names = names_string.split(", ")
+
+length=len(names)
+random_list = random.randint(0,length - 1)
+
+print(names[random_list],"is going to pay for the meal today!")
+
+----------------------------------------
+
+Nested List:
+
+We can add list in a list to store two or more related lists at one place.
+
+fruits=[pears,apple,orange]
+vegetable=[bittergourd,ladyfinger,cauliflower,peas]
+
+dirt_dozens=[fruits,vegetables]
+
+here, fruits is at index 0 & vegetables is at index 1.
+
+Question 1:
+Given the following list:
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+Which line of code will give you "Apples"?
+
+Ans. print(fruits[-5])
+
+Question 2:
+Given the code below:
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+fruits[-1] = "Melons"
+fruits.append("Lemons")
+print(fruits)
+What do you think will be printed?
+
+Ans. ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Melons", "Lemons"]
+
+
+Question 3:
+Given the code below:
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+ 
+dirty_dozen = [fruits, vegetables]
+ 
+print(dirty_dozen[1][1])
+What will be printed?
+
+Ans. Kale
+
+Explanation:
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+ 
+dirty_dozen = [fruits, vegetables]
+print(dirty_dozen[0])
+print(dirty_dozen[1])
+print(dirty_dozen[1][2])
+print(dirty_dozen[1][3])
+print(dirty_dozen[1][1])
+
+Output:
+
+['Strawberries', 'Nectarines', 'Apples', 'Grapes', 'Peaches', 'Cherries', 'Pears']
+['Spinach', 'Kale', 'Tomatoes', 'Celery', 'Potatoes']
+Tomatoes
+Celery
+Kale
