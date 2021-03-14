@@ -1,0 +1,44 @@
+
+The project for Day 05 will be password generator. Reason for this project is hackers easily gets into the account if easy
+ or resused passwords are used.
+ 
+Well,Using the same password on 20 different sites from Google to Facebook, to Skype, to Spotify,to all the random services that we sign up to.
+
+The problem is that when one of these sites get hacked, then the email and password combination you used to signup is compromised.
+So all a hacker has to do is try out those credentials on a bunch of other websites and see if they work. 
+
+Now, we can easily detect if our email & password is on a database somewhere at this website: https://haveibeenpwned.com/
+,type in your email to see if it was involved in a website that had been hacked.
+
+Now, question comes of security, then you'll actually need unique passwords for each and every website.
+And they should really be strong passwords, not 123456, or qwerty.
+
+For help in generating strong passwords we're going to be building a password generator,strong passwords with letters and symbols and numbers. 
+
+
+FOR Loop: looping through Lists. IT ALLOWS TO perform repeatitive actions in less code. One variable iterates through till the end of file or set condition reaches.
+
+syntax: for iteration_variable list_name:
+             indented statements
+
+Example:
+
+fruits=['Apple','Pears','Grapes'] #List of Fruits
+for fruit in fruits: #iterating variable "fruit" iterates through fruit till the NONE reaches
+  print(*fruits)
+  print(fruit +" Hey") #type of iteraator is string & we can concatenate strings with strings only
+  print(type(fruit))
+print(*fruits ) # * unpacks the list items & gives list without quotes
+
+output:
+
+Apple Pears Grapes
+Apple Hey
+<class 'str'>
+Apple Pears Grapes
+Pears Hey
+<class 'str'>
+Apple Pears Grapes
+Grapes Hey
+<class 'str'>
+Apple Pears Grapes
