@@ -42,3 +42,182 @@ Apple Pears Grapes
 Grapes Hey
 <class 'str'>
 Apple Pears Grapes
+
+->>>> Day 5-1-exercise: <<<<-
+
+Average Height
+Instructions
+You are going to write a program that calculates the average student height from a List of heights.
+
+e.g. student_heights = [180, 124, 165, 173, 189, 169, 146]
+
+The average height can be calculated by adding all the heights together and dividing by the total number of heights.
+
+e.g.
+
+180 + 124 + 165 + 173 + 189 + 169 + 146 = 1146
+
+There are a total of 7 heights in student_heights
+
+1146 ÷ 7 = 163.71428571428572
+
+Average height rounded to the nearest whole number = 164
+
+Important You should not use the sum() or len() functions in your answer. You should try to replicate their functionality using what you have learnt about for loops.
+
+Example Input
+156 178 165 171 187
+156 178 165 171 187
+In this case, student_heights would be a list that looks like: [156, 178, 165, 171, 187]
+
+Example Output
+171
+
+Solution: 1
+
+student_heights = input("Input a list of student heights ").split()  #takes the string inputs & convert it to list
+count=0
+sum=0
+for n in range(0, len(student_heights)): #running for loop from 0 to length of the list student_heights
+  student_heights[n] = int(student_heights[n]) #int type casting of list type range wise. if zeroth height comes it only converts this list type
+  # print(student_heights[n]) 
+  # sum=sum+student_heights[n]
+  # print(sum )
+  # count=count+1
+  
+# 🚨 Don't change the code above 👆
+  sum = sum + student_heights[n] #performs addition of the list int items
+  
+  count=count+1
+
+print(f"Total height: {sum}")
+print(f"Number of Students: {count} ")
+average=round(sum/count)
+print(average)
+
+Output:
+
+Input a list of student heights 11 22 33 44
+Total height: 110
+Number of Students: 4 
+28
+
+Solution: 2
+
+# 🚨 Don't change the code below 👇
+student_heights = input("Input a list of student heights ").split()
+for n in range(0, len(student_heights)):
+  student_heights[n] = int(student_heights[n])
+# print(student_heights)
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+total_height = 0
+for height in student_heights:
+  total_height += height
+print(f"total height = {total_height}")
+
+number_of_students = 0
+for student in student_heights:
+  number_of_students += 1
+print(f"number of students = {number_of_students}")
+  
+average_height = round(total_height / number_of_students)
+print(average_height)
+
+---------------------
+
+Day: 05-02 Exercise:
+
+Highest Score
+
+Instructions
+You are going to write a program that calculates the highest score from a List of scores.
+
+e.g. student_scores = [78, 65, 89, 86, 55, 91, 64, 89]
+
+Important you are not allowed to use the max or min functions. The output words must match the example. i.e
+
+The highest score in the class is: x
+
+Example Input
+78 65 89 86 55 91 64 89
+78 65 89 86 55 91 64 89
+In this case, student_scores would be a list that looks like: [78, 65, 89, 86, 55, 91, 64, 89]
+
+Example Output
+The highest score in the class is: 91
+The highest score in the class is: 91
+e.g. When you hit run, this is what should happen:
+
+https://cdn.fs.teachablecdn.com/DnSPgYNSTgeHRJ3MinHg
+
+Hint
+Think about the logic before writing code. How can you compare numbers against each other to see which one is larger?
+
+
+Solution:
+
+
+
+
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+
+max=student_scores[0]
+for i in student_scores:
+    if i >= max:
+        max=i
+print(f"The highest score in the class is: {max}")
+
+#Commented Code:---------------
+# print(type(student_scores))
+
+# maxi=student_scores[0]
+# for i in student_scores:
+#     if maxi >= student_scores:
+#         maxi=student_scores
+        
+# print(maxi)
+
+# for i in student_scores:
+#     s=student_scores[i] list out of index range because s=student_score[11] if list is of length 2 only
+#     if maxi >=s:
+#         maxi=student_scores
+        
+# print(maxi)
+#Commented Code:---------------
+
+OutPut:
+
+Input a list of student scores 33 22 11 77
+[33, 22, 11, 77]
+The highest score in the class is: 77
+
+
+Solution: 02:------------- It is better for all types of data types not just for lists
+
+student_scores = input("Input a list of student scores ").split()
+for n in range(0, len(student_scores)):
+  student_scores[n] = int(student_scores[n])
+print(student_scores)
+# 🚨 Don't change the code above 👆
+
+#Write your code below this row 👇
+highest_score = 0
+for score in student_scores:
+  if score > highest_score:
+    highest_score = score
+    # print(highest_score)
+    
+print(f"The highest score in the class is: {highest_score}")
+
+--------------------------------------------------------------------
+
+
