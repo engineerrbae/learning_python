@@ -471,3 +471,265 @@ Fizz
 98
 Fizz
 Buzz
+
+
+Now, comes the Password generator project. In this project I struggled to print 3 lists without brackets & quotes. I did try join function, *, sep='' but, had no sucess. 
+Also, for selecting random no. I didn't use for loop as logic wasn't clicking to me. I reached very close to the final output for tougher solution however, coudn't crack:
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+Welcome to the PyPassword Generator!
+How many letters would you like in your password?
+2
+How many symbols would you like?
+3
+How many numbers would you like?
+2
+cm71+%
+['%', '', '+']['c', 'm']['1', '7']   ------------> This is where I got stuck
+
+Am struggling to print 3 lists without brackets & commas
+I did try join function, * & sep but, I had no sucess
+-------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+
+So, I used random function's sample function which I had used before in day 5 as well. It is somewhat this way:
+
+import random
+
+random.sample(choice,range) where, choice=out of which you wish to get the random output , range= how many random selections you want from entrire choice
+
+Suppose, we have n=[3,4,6,8] now user want to select 2 random numbers to be selected. So, we will be writing the sample function as:
+
+random.sample(n,2) 
+
+and it will then exhibit the 2 random numbers.
+
+Furthermore, I shuffled the result & tried to print without brackets but, as explained above failed. When I tried Angela's method then, it clicked & I solved it in that way. Voila it was so sim
+simple.
+
+Here's the final code:
+
+#Password Generator Project
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+
+
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
+P1=random.sample(letters,nr_letters) #selects the random letters from given choices upto given input
+P2=random.sample(numbers,nr_numbers)
+P3=random.sample(symbols,nr_symbols)
+
+print(*P1,*P2,*P3,sep='') #easiestOne - sep='' eliminates the spaces between list items
+
+#HARD One -shuffling all
+
+random.shuffle(P1) #shuffling
+random.shuffle(P2)
+random.shuffle(P3)
+
+lis=[P1,P2,P3]
+random.shuffle(lis) #hardone
+
+Pass=[]
+for i in lis:
+  Pass+=i
+print(*Pass,sep='')
+
+--------------
+
+Output:
+
+Welcome to the PyPassword Generator!
+How many letters would you like in your password?
+2
+How many symbols would you like?
+2
+How many numbers would you like?
+2
+xe68)!
+xe!)86
+
+----------------------
+
+Now, let me show you my commented code which I tried to get that without bracket thing. Note, it doesn't do what I wanted:
+
+
+# for i in range (0,len(lis)):
+#   s=str(lis)
+#   t=''.join(s)
+# print(t,sep='')
+# print(type(s))
+
+
+# # P1=[letters,numbers,symbols]
+# P1=random.sample(letters,nr_letters)
+# P2=random.sample(numbers,nr_numbers)
+# P3=random.sample(symbols,nr_symbols)
+
+
+# random.shuffle(P1)
+# random.shuffle(P2)
+# random.shuffle(P3)
+# lis=[P1,P2,P3]
+# print(lis)
+
+# random.shuffle(lis)
+
+# t=''.join(map(str, lis))
+
+# # return string   
+# print (t) 
+
+Here, goes the Angela's code: [So simple it is using for loop later I gave my twist to it & will be pasting that after her's code ]
+
+#Password Generator Project
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+#Eazy Level
+# password = ""
+
+# for char in range(1, nr_letters + 1):
+#   password += random.choice(letters)
+
+# for char in range(1, nr_symbols + 1):
+#   password += random.choice(symbols)
+
+# for char in range(1, nr_numbers + 1):
+#   password += random.choice(numbers)
+
+# print(password)
+
+#Hard Level
+password_list = []
+
+for char in range(1, nr_letters + 1):
+  password_list.append(random.choice(letters))
+
+for char in range(1, nr_symbols + 1):
+  password_list += random.choice(symbols)
+
+for char in range(1, nr_numbers + 1):
+  password_list += random.choice(numbers)
+
+print(password_list)
+random.shuffle(password_list)
+print(password_list)
+
+password = ""
+for char in password_list:
+  password += char
+
+print(f"Your password is: {password}")
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\output\\\\\\\\\\\\\\\\\\\\\\\\
+
+Welcome to the PyPassword Generator!
+How many letters would you like in your password?
+4
+How many symbols would you like?
+2
+How many numbers would you like?
+1
+['O', 'A', 'I', 'N', '(', '*', '6']
+['6', 'N', '(', 'O', 'A', '*', 'I']
+Your password is: 6N(OA*I
+
+-------------------------Now, my for loop thing-----------------------
+
+
+#Password Generator Project
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+
+#Eazy Level - Order not randomised:
+#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+
+password=''
+
+for p in range(1,nr_letters+1):
+  password+=random.choice(letters)
+
+for p in range(1,nr_symbols+1):
+  password+=random.choice(symbols)
+
+for p in range(1,nr_numbers+1):
+  password+=random.choice(numbers)
+
+print(password)
+
+
+
+#Hard Level - Order of characters randomised:
+#e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+
+s=list(password)
+random.shuffle(s)
+print(*s,sep='')
+
+# -------------------------
+
+Password_list=[]
+
+for p in range(1,nr_letters+1):
+  Password_list+=random.choice(letters)
+
+for p in range(1,nr_symbols+1):
+  Password_list+=random.choice(symbols)
+
+for p in range(1,nr_numbers+1):
+  Password_list+=random.choice(numbers)
+
+print(Password_list) #easy one password
+
+random.shuffle(Password_list) #shuffling the positions
+
+#Now printing list without brackets otherwise output would be incide brackets & quotes ['','']
+
+Pass=''  
+
+for char in Password_list:
+  Pass+=char
+print(Pass)
+
+
+\\\\\\\\\\\\\\\\\\\Output\\\\\\\\\\\\\\\\\\\\\\\
+
+Welcome to the PyPassword Generator!
+How many letters would you like in your password?
+4
+How many symbols would you like?
+4
+How many numbers would you like?
+4
+nUzp)#%+3426
+z3)+26n4U%p#
+['o', 'V', 'l', 'O', '*', ')', '#', '&', '2', '3', '9', '7']
+O&l#V39)*27o
