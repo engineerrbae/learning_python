@@ -51,5 +51,50 @@ turn_right()
 move()
 turn_right()
 move()
+
+Exercise: 6-1-Hurdle Loop Challenge:
+
+https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%201&url=worlds%2Ftutorial_en%2Fhurdle1.json
+
+Try to write the shortest code.
+
+Solution:
+
+def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+def jump(): #Each step bot to cross one hurdle
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+for i in range(6): #Total steps to cross all hurdles
+    jump()
     
-  
+INDENTATION:
+
+Spaces or Tabs? The age old question and the extent to which people obsess over this question,it really shows in this 2017 Stack Overflow developer survey,
+where they are asked the developers, do you use spaces or do you use tabs?
+
+And then they compare it against their annual salary and somehow have managed to show that the people who use spaces seem to earn a
+lot more than the people who use tabs.
+
+Now the official guide from the Python community is in fact to use spaces.
+
+So if you click on the section, tabs or spaces,
+they tell you in no uncertain words,that spaces are the preferred indentation method.And in fact, in Python 3,
+you can't mix a code file that uses tabs and spaces for indentation in the same file. 
+
+And it also tells you that in order to indent a line of code,it should be indented using four spaces,
+so four hits of the space bar. 
+
+Now,for a lot of people, that may seem quite inefficient because I have to hit my space bar
+four times in order to achieve a single indent.
+And you've seen how much we indent throughout our code. So it seems very,very inefficient.
+
+But luckily in most code editors,they actually have a setting that allows you to indent using spaces,
+changing the indent size to four.And when you hit the tab key,it will automatically insert four spaces.
