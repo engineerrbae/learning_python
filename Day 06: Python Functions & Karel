@@ -1,1 +1,55 @@
 Functions, Code Blocks & While Loops
+
+Functions are used to store the set of instructions for later use.
+
+This is how we define the functions:
+
+def function_name():  #It carries all the to-do tasks for the defined functions.
+    indented statements
+    
+function_name() #this is the function calling. Responsible for getting the result from the functions.
+
+
+Note That: Python is an interpreter so, we cannot call/revoke the function before it's definition /def part
+
+In Day 06: In reeborg's world we do not have instructions to move the robot to turn right. So, you need to write the instructions for turn right.
+
+https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Alone&url=worlds%2Ftutorial_en%2Falone.json
+
+Ans: def turn_right():
+    
+    turn_left()
+    turn_left()
+    turn_left()
+    
+    
+turn_left()
+move()
+turn_right()
+move()
+
+In next challenge, Angela asked to draw a square:
+
+ans:
+
+def turn_right():
+    
+    turn_left()
+    turn_left()
+    turn_left()
+    
+ 
+def movement():
+    move()
+    move()
+
+turn_left()
+move()
+turn_right()
+move()
+turn_right()
+move()
+turn_right()
+move()
+    
+  
