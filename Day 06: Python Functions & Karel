@@ -98,3 +98,133 @@ And you've seen how much we indent throughout our code. So it seems very,very in
 
 But luckily in most code editors,they actually have a setting that allows you to indent using spaces,
 changing the indent size to four.And when you hit the tab key,it will automatically insert four spaces.
+
+
+WHILE LOOPS:
+
+Until now, we know sort of two FOR loops:
+
+1. one where we're looping through a list of items to do something with each item in the list,
+
+ for item in list_of_items:
+        #Do something to each item
+
+
+2. other is using a range function where we create a range between a and b
+
+and then we use every number in that range to do something. For example,
+
+for number in range(a,b):
+        print(number)
+
+in this case would be to print it out. 
+
+The while loop looks something like this:
+
+while something_is_true
+    #do somethinh repeatedly
+
+
+when we have to use while loop to cross hurdle 1 using while loop it would be this way:
+
+def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+def jump(): #Each step bot to cross one hurdle
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+number_of_hurdles=6
+while number_of_hurdles>0:
+    jump()
+    number_of_hurdles-=1
+
+https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%201&url=worlds%2Ftutorial_en%2Fhurdle1.json
+
+
+Now, have to write a while loop for reeeborg when you're not known with the final destination when it'll come. So, here we have it.
+
+https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%202&url=worlds%2Ftutorial_en%2Fhurdle2.json
+
+Code:
+def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+def jump(): #Each step bot to cross one hurdle
+    move()
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+while at_goal() != True:      #it will run till the time reeborg isn't at his goal. at_goal() is an inbuilt function for reeborg.
+    jump()
+    
+    '''#WORKING CODE for hurdle 3
+while True:
+    jump()
+    if at_goal():
+        break'''
+
+'''while at_goal() is not True:
+    jump()'''
+    
+'''while not at_goal():
+            jump() '''
+
+Now, the question comes when to use for loop & while loop?
+
+1. for loops are great when you wish to iterate over something and you need to do something with each
+    thing that you are iterating over.
+    
+    So for example,if you're iterating through a list and you're saying for each fruit in our list
+    of fruits and you want to be able to say, I don't know, do something with each of these items 
+    in here. For instance,it can be as simple as just printing it. Well, then this will require a 
+    for loop.
+
+2. Use while loops when you don't really care what number in a sequence you're in, which item 
+    you're iterating through in a list and you just simply want to carry out some sort of functionality 
+    many,many times until some sort of condition that you set.
+
+Another Reeborg's Exercise wherein we have no idea how many hurdles & movemeants will going to be there. All will be presented randomly. So, you have to write a program to suit all 
+conditions.
+
+Using these in_built() functions: # front_is_clear() 
+#wall_in_front(), at_goal(), and their negation.  and if & while loop.
+
+Program:
+
+To write this program I reused the old function jump just removed the initial move() function it was ready to use for this program.
+Going further I added the move() function only when reeborg find no hurdle & when it faces the hurdle it would have to jump it.
+
+So here goes the program:
+
+def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+def jump(): #Each step bot to cross one hurdle
+    turn_left()
+    move()
+    turn_right()
+    move()
+    turn_right()
+    move()
+    turn_left()
+
+# front_is_clear() 
+#wall_in_front(), at_goal(), and their negation.
+
+while at_goal() != True:
+    if front_is_clear() is True:
+        move()
+    elif wall_in_front() is True:
+        jump()
+ 
