@@ -228,3 +228,91 @@ while at_goal() != True:
     elif wall_in_front() is True:
         jump()
  
+ 
+ \\\\\\\\\\\\\\\\\\\\\\\\\
+ 
+ Now, coming to the challenge which I completed but code line was 43 & angela had asked to write within 23 lines. Damn! it was to simple to write the 23 lines of code. I made it too
+ complex.In this challenge, the every hurdle's height is changing randomly that means no defined height.
+ 
+ And program shall work for all the presented hurdles for rebborg's.
+ 
+ https://reeborg.ca/reeborg.html?lang=en&mode=python&menu=worlds%2Fmenus%2Freeborg_intro_en.json&name=Hurdle%204&url=worlds%2Ftutorial_en%2Fhurdle4.json
+ 
+ I solved it by first writing the condition if there is no wall in front keep moving else go to the jump. In jump, I wrote the program for one side of the hurdle & then when I
+ had to write for second face of the hurdle I wrote the another function.
+ 
+ In second function, I specified, if front is clear move ahead else turn left & break. 
+ 
+ Let me get my code first which I wrote before analysing that it's too complex & too long plus inefficient. Although, was working totally fine :D for all 4 hurdles. But, now I like 
+ Angela's approach more:
+ 
+ def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+ def second():
+    move()
+    if front_is_clear() is True:
+        turn_right()
+        while wall_in_front() is True:
+            turn_left()
+            if front_is_clear() is True:
+                move()
+                turn_right()
+            else:
+                turn_left()
+                break
+            
+    else:
+        turn_left()
+ def jump():
+    turn_left()
+    turn_right()
+    while wall_in_front() is True:
+        turn_left()
+        move()
+        turn_right()
+    move()
+    turn_right()
+    second()
+ while at_goal() != True:
+    if front_is_clear() is True:
+        move()
+    elif wall_in_front() is True:
+        jump()
+ 
+ 
+ Angela's code: Just 18 lines & so understandable.
+ 
+ def turn_right(): #it turns right
+    for i in range(3):
+        turn_left()
+def jump():
+    turn_left()
+    while wall_on_right():
+        move()
+    turn_right()
+    move()
+    turn_right()
+    while front_is_clear():
+        move()
+    turn_left()
+while at_goal() != True:
+    if front_is_clear() is True:
+        move()
+    elif wall_in_front() is True:
+        jump()
+ 
+However, I am still happy that I got results on screen what I wanted to see. Now, I need to really work on code efficiency. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
